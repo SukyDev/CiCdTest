@@ -1,40 +1,30 @@
 name: iOS Tests
 
 on:
-# Triggers on PR to main or develop
-    pull_request:
-        branches: [ main, develop ]
-        # Allows manual trigger
-        workflow_dispatch:
+  # Triggers on PR to main or develop
+  pull_request:
+    branches: [ main, develop ]
+  # Allows manual trigger
+  workflow_dispatch:
 
-    jobs:
-        test:
-            runs-on: macos-latest
+jobs:
+  test:
+    runs-on: macos-latest
 
-            steps:
-            - uses: actions/checkout@v4
+    steps:
+    - uses: actions/checkout@v4
 
-            - name: Select Xcode
-            uses: maxim-lobanov/setup-xcode@v1
-            with:
-                xcode-version '15.3'
+    - name: Select Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '15.3'
 
-            - name: Show build SDK
-            run: xcodebuild -showsdks
+    - name: Show build SDK
+      run: xcodebuild -showsdks
 
-            - name: Show available destinations
-            run: xcodebuild -list -project CiCdTesting.xcodeproj
+    - name: Show available destinations
+      run: xcodebuild -list -project CiCdTesting.xcodeproj
 
-            - name: Install CocoaPods
-            run: |
-                pod install
-
-            - name: Run tests
-            run: |
-                xcodebuild test \
-                -project CiCdTesting.xcodeproj \
-                -scheme CiCdTesting
-                -destination 'platform=iOS Simulator,name=iPhone15,OS=17.0' \
-                -enableCodeCoverage YES
-
-
+    - name: Install CocoaPods
+      run: |
+        pod install
