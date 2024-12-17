@@ -60,6 +60,12 @@ jobs:
       - name: Install Fastlane
         run: |
           gem install fastlane
+          
+      # Add fastlane username and password
+      - name: Set Fastlane credentials
+        run: |
+          export FASTLANE_USER="${{ secrets.FASTLANE_USER }}"
+          export FASTLANE_PASSWORD="${{ secrets.FASTLANE_PASSWORD }}"
 
       # Archive the app
       - name: Build and archive the app
@@ -80,7 +86,7 @@ jobs:
       # Upload to TestFlight
       - name: Upload to TestFlight
         run: |
-          fastlane deliver --ipa $PWD/build/CiCdTesting.ipa --skip_screenshots --skip_metadata --skip_binary_upload --username "info_ns@zesium.com"
+          fastlane deliver --ipa $PWD/build/CiCdTesting.ipa --skip_screenshots --skip_metadata --skip_binary_upload
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
