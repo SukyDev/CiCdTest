@@ -94,10 +94,11 @@ jobs:
       # Upload to TestFlight
       - name: Upload to TestFlight
         run: |
-          fastlane deliver --ipa $PWD/build/CiCdTesting.ipa \
+          bundle exec fastlane deliver --ipa $PWD/build/CiCdTesting.ipa \
             --skip_screenshots \
             --skip_metadata \
-            --skip_binary_upload
+            --skip_binary_upload \
+            --username "${{ secrets.FASTLANE_USER }}"
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
