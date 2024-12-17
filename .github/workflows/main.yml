@@ -60,16 +60,6 @@ jobs:
       - name: Install Fastlane
         run: |
           gem install fastlane
-          
-      # Add fastlane username and password
-      - name: Set Fastlane credentials
-        run: |
-          echo "Setting Fastlane credentials"
-          echo "FASTLANE_USER: ${{ secrets.FASTLANE_USER }}"
-          echo "FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}"
-          export FASTLANE_USER="${{ secrets.FASTLANE_USER }}"
-          export FASTLANE_PASSWORD="${{ secrets.FASTLANE_PASSWORD }}"
-          echo "FASTLANE_USER is set to $FASTLANE_USER"
 
       # Archive the app
       - name: Build and archive the app
@@ -87,6 +77,19 @@ jobs:
             -exportOptionsPlist exportOptions.plist \
             -exportPath $PWD/build
 
+      # Add fastlane username and password
+      - name: Set Fastlane credentials
+        run: |
+          echo "Setting Fastlane credentials"
+          echo "FASTLANE_USER: ${{ secrets.FASTLANE_USER }}"
+          echo "FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}"
+          export FASTLANE_USER="${{ secrets.FASTLANE_USER }}"
+          export FASTLANE_PASSWORD="${{ secrets.FASTLANE_PASSWORD }}"
+          echo "Setting Fastlane session token"
+          export FASTLANE_SESSION="${{ secrets.FASTLANE_SESSION }}"
+          echo "FASTLANE_SESSION is set"
+          echo "FASTLANE_USER is set to $FASTLANE_USER"
+
       # Upload to TestFlight
       - name: Upload to TestFlight
         run: |
@@ -94,8 +97,7 @@ jobs:
             --skip_screenshots \
             --skip_metadata \
             --skip_binary_upload \
-            --username "${{ secrets.FASTLANE_USER }}" \
-            --password "${{ secrets.FASTLANE_PASSWORD }}"
+            --username "${{ secrets.FASTLANE_USER }}"
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
