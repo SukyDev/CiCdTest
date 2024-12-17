@@ -97,9 +97,7 @@ jobs:
           fastlane deliver --ipa $PWD/build/CiCdTesting.ipa \
             --skip_screenshots \
             --skip_metadata \
-            --skip_binary_upload \
-            --username "${{ secrets.FASTLANE_USER }}" \
-            --password "${{ secrets.FASTLANE_PASSWORD }}"
+            --skip_binary_upload
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
