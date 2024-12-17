@@ -110,7 +110,7 @@ jobs:
             --skip_metadata \
             --skip_binary_upload \
             --username "${{ secrets.FASTLANE_USER }}" \
-            --api_key "fastlane/#{secrets.API_KEY_BASE64}" # Use API key
+            --api_key "${{ secrets.API_KEY_BASE64 }}" # Use API key
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
