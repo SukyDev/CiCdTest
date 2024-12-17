@@ -7,8 +7,6 @@ target 'CiCdTesting' do
 
   # Pods for CiCdTesting
 
-	pod 'Alamofire'
-
   target 'CiCdTestingTests' do
     inherit! :search_paths
     # Pods for testing
