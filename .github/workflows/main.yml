@@ -120,7 +120,7 @@ jobs:
             --skip_metadata \
             --skip_binary_upload \
             --username "${{ secrets.FASTLANE_USER }}" \
-            --api_key "{\"key_id\":\"${{ secrets.FASTLANE_APPLE_KEY_ID }}\", \"issuer_id\":\"${{ secrets.FASTLANE_APPLE_ISSUER_ID }}\", \"private_key\":\"$(cat /tmp/AuthKey_ABC123.p8)\"}"
+            --api_key "{\"key_id\":\"${{ secrets.KEY_ID }}\", \"issuer_id\":\"${{ secrets.ISSUER_ID }}\", \"private_key\":\"$(cat /tmp/AuthKey_ABC123.p8)\"}"
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
