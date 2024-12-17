@@ -80,16 +80,16 @@ jobs:
       # Add fastlane username and password
       - name: Set Fastlane credentials
         run: |
-          export FASTLANE_SESSION="${{ secrets.FASTLANE_SESSION }}"
-        #  echo "Setting Fastlane credentials"
-        #  echo "FASTLANE_USER: ${{ secrets.FASTLANE_USER }}"
-        #  echo "FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}"
-        #  export FASTLANE_USER="${{ secrets.FASTLANE_USER }}"
-        #  export FASTLANE_PASSWORD="${{ secrets.FASTLANE_PASSWORD }}"
-        #  echo "Setting Fastlane session token"
-        #  export FASTLANE_SESSION="${{ secrets.FASTLANE_SESSION }}"
-        #  echo "FASTLANE_SESSION is set"
-        #  echo "FASTLANE_USER is set to $FASTLANE_USER"
+          # Set the session token if using 2FA
+          if [ -n "${{ secrets.FASTLANE_SESSION }}" ]; then
+            export FASTLANE_SESSION="${{ secrets.FASTLANE_SESSION }}"
+            echo "Using Fastlane session token for authentication"
+          else
+            # Otherwise, use username and password
+            export FASTLANE_USER="${{ secrets.FASTLANE_USER }}"
+            export FASTLANE_PASSWORD="${{ secrets.FASTLANE_PASSWORD }}"
+            echo "Using Fastlane username and password for authentication"
+          fi
 
       # Upload to TestFlight
       - name: Upload to TestFlight
