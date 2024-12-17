@@ -1,0 +1,34 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/New/Library/Developer/Xcode/DerivedData/CiCdTesting-cmbddelruhnbsydyxtqyjznqtklc/Build/Intermediates.noindex/ArchiveIntermediates/CiCdTesting/InstallationBuildProductsLocation/Applications/CiCdTesting.app/CiCdTesting'
+relocations:
+  - { offsetInCU: 0x43, offset: 0x54161, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewVMa', symObjAddr: 0x0, symBinAddr: 0x100004000, symSize: 0x10 }
+  - { offsetInCU: 0x57, offset: 0x54175, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewV7SwiftUI0E0AA4BodyAdEP_AGWT', symObjAddr: 0x10, symBinAddr: 0x100004010, symSize: 0x10 }
+  - { offsetInCU: 0xD7, offset: 0x541F5, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewV4bodyQrvg7SwiftUI05TupleE0VyAE0E0PAEE15foregroundStyleyQrqd__AE05ShapeK0Rd__lFQOyAiEE10imageScaleyQrAE5ImageV0N0OFQOyAN_Qo__AE04TintlK0VQo__AE4TextVtGyXEfU_', symObjAddr: 0x20, symBinAddr: 0x100004020, symSize: 0x394 }
+  - { offsetInCU: 0x1C1, offset: 0x542DF, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewV7SwiftUI0E0AadEP4body4BodyQzvgTW', symObjAddr: 0x3D4, symBinAddr: 0x1000043D4, symSize: 0xE4 }
+  - { offsetInCU: 0x2AB, offset: 0x543C9, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledName, symObjAddr: 0x4B8, symBinAddr: 0x1000044B8, symSize: 0x40 }
+  - { offsetInCU: 0x2BF, offset: 0x543DD, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI17EnvironmentValuesV10imageScaleAA5ImageV0F0OvpACTKq', symObjAddr: 0x4F8, symBinAddr: 0x1000044F8, symSize: 0x20 }
+  - { offsetInCU: 0x2D7, offset: 0x543F5, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI17EnvironmentValuesV10imageScaleAA5ImageV0F0OvpACTkq', symObjAddr: 0x518, symBinAddr: 0x100004518, symSize: 0x7C }
+  - { offsetInCU: 0x2EF, offset: 0x5440D, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI15ModifiedContentVyACyAA5ImageVAA30_EnvironmentKeyWritingModifierVyAE5ScaleOGGAA016_ForegroundStyleI0VyAA09TintShapeL0VGGWOb', symObjAddr: 0x594, symBinAddr: 0x100004594, symSize: 0x48 }
+  - { offsetInCU: 0x303, offset: 0x54421, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI4TextV7StorageOWOy', symObjAddr: 0x620, symBinAddr: 0x100004620, symSize: 0x10 }
+  - { offsetInCU: 0x317, offset: 0x54435, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI4TextV7StorageOWOe', symObjAddr: 0x66C, symBinAddr: 0x10000466C, symSize: 0x10 }
+  - { offsetInCU: 0x32B, offset: 0x54449, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI15ModifiedContentVyAA6VStackVyAA9TupleViewVyACyACyAA5ImageVAA30_EnvironmentKeyWritingModifierVyAI5ScaleOGGAA016_ForegroundStyleL0VyAA09TintShapeO0VGG_AA4TextVtGGAA14_PaddingLayoutVGACyxq_GAA0G0A2AA2_RzAA0gL0R_rlWl', symObjAddr: 0x680, symBinAddr: 0x100004680, symSize: 0x6C }
+  - { offsetInCU: 0x33F, offset: 0x5445D, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledNameAbstract, symObjAddr: 0x6EC, symBinAddr: 0x1000046EC, symSize: 0x44 }
+  - { offsetInCU: 0x353, offset: 0x54471, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI6VStackVyAA9TupleViewVyAA15ModifiedContentVyAGyAA5ImageVAA30_EnvironmentKeyWritingModifierVyAI5ScaleOGGAA016_ForegroundStyleL0VyAA09TintShapeO0VGG_AA4TextVtGGACyxGAA0E0AAWl', symObjAddr: 0x730, symBinAddr: 0x100004730, symSize: 0x4C }
+  - { offsetInCU: 0x43C, offset: 0x5455A, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewV7SwiftUI0E0AadEP05_makeE04view6inputsAD01_E7OutputsVAD11_GraphValueVyxG_AD01_E6InputsVtFZTW', symObjAddr: 0x3B4, symBinAddr: 0x1000043B4, symSize: 0x4 }
+  - { offsetInCU: 0x458, offset: 0x54576, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewV7SwiftUI0E0AadEP05_makeE4List4view6inputsAD01_eI7OutputsVAD11_GraphValueVyxG_AD01_eI6InputsVtFZTW', symObjAddr: 0x3B8, symBinAddr: 0x1000043B8, symSize: 0x4 }
+  - { offsetInCU: 0x474, offset: 0x54592, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewV7SwiftUI0E0AadEP14_viewListCount6inputsSiSgAD01_eiJ6InputsV_tFZTW', symObjAddr: 0x3BC, symBinAddr: 0x1000043BC, symSize: 0x18 }
+  - { offsetInCU: 0x27, offset: 0x5477A, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting0abC3AppV4bodyQrvgAA11ContentViewVyXEfU_', symObjAddr: 0x0, symBinAddr: 0x10000477C, symSize: 0x4 }
+  - { offsetInCU: 0x46, offset: 0x54799, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting0abC3AppV4bodyQrvgAA11ContentViewVyXEfU_', symObjAddr: 0x0, symBinAddr: 0x10000477C, symSize: 0x4 }
+  - { offsetInCU: 0x76, offset: 0x547C9, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting0abC3AppV7SwiftUI0D0AadEP4body4BodyQzvgTW', symObjAddr: 0x4, symBinAddr: 0x100004780, symSize: 0xB0 }
+  - { offsetInCU: 0xA8, offset: 0x547FB, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting0abC3AppV7SwiftUI0D0AadEPxycfCTW', symObjAddr: 0xB4, symBinAddr: 0x100004830, symSize: 0x4 }
+  - { offsetInCU: 0xD8, offset: 0x5482B, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xB8, symBinAddr: 0x100004834, symSize: 0x34 }
+  - { offsetInCU: 0x10C, offset: 0x5485F, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting0abC3AppVAC7SwiftUI0D0AAWl', symObjAddr: 0xEC, symBinAddr: 0x100004868, symSize: 0x44 }
+  - { offsetInCU: 0x120, offset: 0x54873, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting0abC3AppVMa', symObjAddr: 0x130, symBinAddr: 0x1000048AC, symSize: 0x10 }
+  - { offsetInCU: 0x134, offset: 0x54887, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting0abC3AppV7SwiftUI0D0AA4BodyAdEP_AD5ScenePWT', symObjAddr: 0x140, symBinAddr: 0x1000048BC, symSize: 0x10 }
+  - { offsetInCU: 0x148, offset: 0x5489B, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting11ContentViewVAC7SwiftUI0E0AAWl', symObjAddr: 0x190, symBinAddr: 0x1000048CC, symSize: 0x44 }
+  - { offsetInCU: 0x15C, offset: 0x548AF, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI11WindowGroupVy11CiCdTesting11ContentViewVGACyxGAA5SceneAAWl', symObjAddr: 0x1D4, symBinAddr: 0x100004910, symSize: 0x4C }
+  - { offsetInCU: 0x2B, offset: 0x549E9, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting19ResourceBundleClass33_AE5068D9941578711E2C10EB830AD890LLCfD', symObjAddr: 0x0, symBinAddr: 0x100004960, symSize: 0x10 }
+  - { offsetInCU: 0x6D, offset: 0x54A2B, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting19ResourceBundleClass33_AE5068D9941578711E2C10EB830AD890LLCMa', symObjAddr: 0x10, symBinAddr: 0x100004970, symSize: 0x20 }
+  - { offsetInCU: 0x14E, offset: 0x54B0C, size: 0x8, addend: 0x0, symName: '_$s11CiCdTesting19ResourceBundleClass33_AE5068D9941578711E2C10EB830AD890LLCfD', symObjAddr: 0x0, symBinAddr: 0x100004960, symSize: 0x10 }
+...

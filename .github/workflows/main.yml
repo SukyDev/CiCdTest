@@ -14,11 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'  # Adjust if necessary
-
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
@@ -60,12 +55,13 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-
       - name: Build iOS application archive
         run: |
-            cat $PWD/ios/exportOptions.plist
-            xcodebuild clean -workspace YourProject.xcworkspace -scheme YourScheme -configuration Release --export-options-plist=$PWD/ios/exportOptions.plist
-  
+            cat $PWD/exportOptions.plist
+            xcodebuild clean -workspace CiCdTesting.xcworkspace -scheme CiCdTesting -configuration Prod
+            xcodebuild archive -workspace CiCdTesting.xcworkspace -scheme CiCdTesting -configuration Prod -archivePath $PWD/CiCdTesting.xcarchive
+            xcodebuild -exportArchive -archivePath $PWD/CiCdTesting.xcarchive -exportOptionsPlist $PWD/exportOptions.plist -exportPath $PWD
+
       - name: Decode App Store Connect private key file and save it
         env:
             API_KEY_BASE64: ${{ secrets.API_KEY_BASE64 }}
