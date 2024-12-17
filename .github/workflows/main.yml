@@ -86,5 +86,8 @@ jobs:
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
         run: |
-          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
-          rm ~/Library/MobileDevice/Provisioning\ Profiles/SumerGame.mobileprovision
+          # Delete the temporary keychain
+          security delete-keychain $CiCdTesting_TEMP/app-signing.keychain-db
+      
+          # Remove the provisioning profile used for the project
+          rm -f ~/Library/MobileDevice/Provisioning\ Profiles/CiCdTesting.mobileprovision
