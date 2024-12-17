@@ -98,7 +98,8 @@ jobs:
             --skip_screenshots \
             --skip_metadata \
             --skip_binary_upload \
-            --username "${{ secrets.FASTLANE_USER }}"
+            --username "${{ secrets.FASTLANE_USER }}" \
+            --password "${{ secrets.FASTLANE_PASSWORD }}"
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
