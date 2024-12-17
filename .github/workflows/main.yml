@@ -14,6 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  # Adjust if necessary
+
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
