@@ -61,6 +61,16 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
 
+      - name: Decode the Base64-encoded .p8 file
+        run: |
+          echo "${{ secrets.API_KEY_BASE64 }}" | base64 --decode > /tmp/AuthKey_ABC123.p8
+
+      - name: Set environment variables for Fastlane
+        run: |
+          export FASTLANE_APPLE_KEY_ID="${{ secrets.KEY_ID }}"
+          export FASTLANE_APPLE_ISSUER_ID="${{ secrets.ISSUER_ID }}"
+          export FASTLANE_APPLE_PRIVATE_KEY=$(cat /tmp/AuthKey_ABC123.p8)
+
       # Install Fastlane
       - name: Install Fastlane
         run: |
@@ -110,7 +120,7 @@ jobs:
             --skip_metadata \
             --skip_binary_upload \
             --username "${{ secrets.FASTLANE_USER }}" \
-            --api_key "${{ secrets.API_KEY_BASE64 }}" # Use API key
+            --api_key "{\"key_id\":\"${{ secrets.FASTLANE_APPLE_KEY_ID }}\", \"issuer_id\":\"${{ secrets.FASTLANE_APPLE_ISSUER_ID }}\", \"private_key\":\"$(cat /tmp/AuthKey_ABC123.p8)\"}"
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
