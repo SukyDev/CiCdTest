@@ -59,8 +59,8 @@ jobs:
         run: |
             cat $PWD/exportOptions.plist
             xcodebuild clean -workspace CiCdTesting.xcworkspace -scheme CiCdTesting -configuration Prod
-            xcodebuild archive -workspace CiCdTesting.xcworkspace -scheme CiCdTesting -configuration Prod -archivePath $PWD/CiCdTesting.xcarchive
-            xcodebuild -exportArchive -archivePath $PWD/CiCdTesting.xcarchive -exportOptionsPlist $PWD/exportOptions.plist -exportPath $PWD
+            xcodebuild archive -workspace CiCdTesting.xcworkspace -scheme CiCdTesting -configuration Prod -archivePath $PWD/build/CiCdTesting.xcarchive
+            xcodebuild -exportArchive -archivePath $PWD/build/CiCdTesting.xcarchive -exportOptionsPlist $PWD/exportOptions.plist -exportPath $PWD/build
 
       - name: Decode App Store Connect private key file and save it
         env:
@@ -80,7 +80,7 @@ jobs:
         run: |
             echo "Before uploading: "
             ls ~/private_keys
-            xcrun altool --upload-app -f build/ios/ipa/flutter_app.ipa -t ios --apiKey $API_KEY --apiIssuer "$ISSUER_ID"
+            xcrun altool --upload-app -f build/CiCdTesting.ipa -t ios --apiKey $API_KEY --apiIssuer "$ISSUER_ID"
             ls ~/private_keys
   
       - name: Clean up keychain and provisioning profile
