@@ -61,69 +61,34 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
 
-      - name: Decode the Base64-encoded .p8 file
+      - name: Build iOS application archive
         run: |
-          echo "${{ secrets.API_KEY_BASE64 }}" | base64 --decode > /tmp/AuthKey_ABC123.p8
-
-      - name: Set environment variables for Fastlane
+            cat $PWD/ios/exportOptions.plist
+            xcodebuild clean -workspace YourProject.xcworkspace -scheme YourScheme -configuration Release --export-options-plist=$PWD/ios/exportOptions.plist
+  
+      - name: Decode App Store Connect private key file and save it
+        env:
+            API_KEY_BASE64: ${{ secrets.API_KEY_BASE64 }}
+            API_KEY: ${{ secrets.KEY_ID }}     
         run: |
-          export FASTLANE_APPLE_KEY_ID="${{ secrets.KEY_ID }}"
-          export FASTLANE_APPLE_ISSUER_ID="${{ secrets.ISSUER_ID }}"
-          export FASTLANE_APPLE_PRIVATE_KEY=$(cat /tmp/AuthKey_ABC123.p8)
-
-      # Install Fastlane
-      - name: Install Fastlane
+            mkdir -p ~/private_keys
+            ls ~/private_keys
+            echo -n "$API_KEY_BASE64" | base64 --decode -o ~/private_keys/AuthKey_$API_KEY.p8
+            echo "After saving: "
+            ls ~/private_keys
+  
+      - name: Upload to App Store Connect
+        env:
+            ISSUER_ID: ${{ secrets.ISSUER_ID }}          
+            API_KEY: ${{ secrets.KEY_ID }}     
         run: |
-          gem install fastlane
-
-      # Archive the app
-      - name: Build and archive the app
-        run: |
-          xcodebuild -workspace CiCdTesting.xcworkspace \
-            -scheme CiCdTesting \
-            -archivePath $PWD/build/CiCdTesting.xcarchive \
-            clean archive
-
-      # Export the .ipa file
-      - name: Export .ipa file
-        run: |
-          xcodebuild -exportArchive \
-            -archivePath $PWD/build/CiCdTesting.xcarchive \
-            -exportOptionsPlist exportOptions.plist \
-            -exportPath $PWD/build
-
-      # Add fastlane username and password
-      - name: Set Fastlane credentials
-        run: |
-          # Set the session token if using 2FA
-          if [ -n "${{ secrets.FASTLANE_SESSION }}" ]; then
-            export FASTLANE_SESSION="${{ secrets.FASTLANE_SESSION }}"
-            echo "Using Fastlane session token for authentication"
-          else
-            # Otherwise, use username and password
-            export FASTLANE_USER="${{ secrets.FASTLANE_USER }}"
-            export FASTLANE_PASSWORD="${{ secrets.FASTLANE_PASSWORD }}"
-            echo "Using Fastlane username and password for authentication"
-          fi
-
-      # Install bundler
-      - name: Install Bundler and dependencies
-        run: |
-          gem install bundler
-          bundle install
-
-      # Upload to TestFlight
-      - name: Upload to TestFlight
-        run: |
-          bundle exec fastlane deliver --ipa $PWD/build/CiCdTesting.ipa \
-            --skip_screenshots \
-            --skip_metadata \
-            --skip_binary_upload \
-            --username "${{ secrets.FASTLANE_USER }}" \
-            --api_key "{\"key_id\":\"${{ secrets.KEY_ID }}\", \"issuer_id\":\"${{ secrets.ISSUER_ID }}\", \"private_key\":\"$(cat /tmp/AuthKey_ABC123.p8)\"}"
-
+            echo "Before uploading: "
+            ls ~/private_keys
+            xcrun altool --upload-app -f build/ios/ipa/flutter_app.ipa -t ios --apiKey $API_KEY --apiIssuer "$ISSUER_ID"
+            ls ~/private_keys
+  
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
         run: |
           security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
-          rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+          rm ~/Library/MobileDevice/Provisioning\ Profiles/SumerGame.mobileprovision
