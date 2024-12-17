@@ -55,6 +55,33 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
+
+      # Install Fastlane
+      - name: Install Fastlane
+        run: |
+          gem install fastlane
+
+      # Archive the app
+      - name: Build and archive the app
+        run: |
+          xcodebuild -workspace CiCdTesting.xcworkspace \
+            -scheme CiCdTesting \
+            -archivePath $PWD/build/CiCdTesting.xcarchive \
+            clean archive
+
+      # Export the .ipa file
+      - name: Export .ipa file
+        run: |
+          xcodebuild -exportArchive \
+            -archivePath $PWD/build/CiCdTesting.xcarchive \
+            -exportOptionsPlist exportOptions.plist \
+            -exportPath $PWD/build
+
+      # Upload to TestFlight
+      - name: Upload to TestFlight
+        run: |
+          fastlane deliver --ipa $PWD/build/CiCdTesting.ipa --skip_screenshots --skip_metadata --skip_binary_upload
+
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
         run: |
