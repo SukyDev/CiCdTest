@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <dict>
+        <!-- Bundle Information -->
+        <key>CFBundleIdentifier</key>
+        <string>com.yourcompany.YourApp</string>
+        
+        <key>CFBundleName</key>
+        <string>CiCdTesting</string>
+        
+        <key>CFBundleVersion</key>
+        <string>1.0.0</string>
+        
+        <key>CFBundleShortVersionString</key>
+        <string>1.0.0</string>
+
+        <!-- App Capabilities -->
+        <key>UIRequiredDeviceCapabilities</key>
+        <array>
+            <string>arm64</string>
+        </array>
+
+        <!-- App Permissions (example) -->
+        <key>NSCameraUsageDescription</key>
+        <string>This app needs camera access</string>
+
+        <key>ITSAppUsesNonExemptEncryption</key>
+        <false/>
+    </dict>
+</plist>
+
