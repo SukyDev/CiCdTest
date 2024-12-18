@@ -59,6 +59,10 @@ jobs:
         run: |
           rm -rf ~/Library/Developer/Xcode/DerivedData/*
 
+      - name: List files in the project directory
+        run: |
+          ls -R CiCdTesting/
+
       - name: Build iOS application archive
         run: |
             cat $PWD/exportOptions.plist
