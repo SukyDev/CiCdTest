@@ -59,6 +59,7 @@ jobs:
         run: |
             cat $PWD/exportOptions.plist
             xcodebuild clean -workspace CiCdTesting.xcworkspace -scheme CiCdTesting -configuration Prod
+            xcodebuild INFOPLIST_FILE="CiCdTesting/Info.plist"
             xcodebuild archive -workspace CiCdTesting.xcworkspace -scheme CiCdTesting -configuration Prod -archivePath $PWD/build/CiCdTesting.xcarchive
             xcodebuild -exportArchive -archivePath $PWD/build/CiCdTesting.xcarchive -exportOptionsPlist $PWD/exportOptions.plist -exportPath $PWD/build
 
