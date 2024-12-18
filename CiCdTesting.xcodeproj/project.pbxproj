@@ -28,9 +28,8 @@
 		D5CF3B3F2D1042A90089E35E /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5CF3B3E2D1042A90089E35E /* exportOptions.plist */; };
 		D5CF3B402D1042A90089E35E /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5CF3B3E2D1042A90089E35E /* exportOptions.plist */; };
 		D5CF3B412D1042A90089E35E /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5CF3B3E2D1042A90089E35E /* exportOptions.plist */; };
-		D5E9D2262D11AE2F000B5356 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5E9D2252D11AE2F000B5356 /* Info.plist */; };
-		D5E9D2272D11AE2F000B5356 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5E9D2252D11AE2F000B5356 /* Info.plist */; };
-		D5E9D2282D11AE2F000B5356 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5E9D2252D11AE2F000B5356 /* Info.plist */; };
+		D5FA1D4D2D12D4E7001A1180 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5FA1D4B2D12D4E7001A1180 /* Info.plist */; };
+		D5FA1D4E2D12D4E7001A1180 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5FA1D4B2D12D4E7001A1180 /* Info.plist */; };
 		D750EFD384A94410D207FC49 /* Pods_CiCdTestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B11094C0E987B2E741B6D1 /* Pods_CiCdTestingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +72,7 @@
 		D5CF3B362D10424D0089E35E /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		D5CF3B372D1042610089E35E /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		D5CF3B3E2D1042A90089E35E /* exportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
-		D5E9D2252D11AE2F000B5356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5FA1D4B2D12D4E7001A1180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0097AF9709E4748941C3AB7 /* Pods-CiCdTesting-CiCdTestingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiCdTesting-CiCdTestingUITests.debug.xcconfig"; path = "Target Support Files/Pods-CiCdTesting-CiCdTestingUITests/Pods-CiCdTesting-CiCdTestingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5021343D43F97751E59CCD9 /* Pods_CiCdTesting_CiCdTestingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CiCdTesting_CiCdTestingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,7 +131,7 @@
 		D5CF3AFB2D1041720089E35E = {
 			isa = PBXGroup;
 			children = (
-				D5E9D2252D11AE2F000B5356 /* Info.plist */,
+				D5FA1D4B2D12D4E7001A1180 /* Info.plist */,
 				D5CF3B3E2D1042A90089E35E /* exportOptions.plist */,
 				D5CF3B312D1041FE0089E35E /* Configuration */,
 				D5CF3B062D1041720089E35E /* CiCdTesting */,
@@ -311,7 +310,6 @@
 				D5CF3B3F2D1042A90089E35E /* exportOptions.plist in Resources */,
 				D5CF3B382D1042610089E35E /* Prod.xcconfig in Resources */,
 				D5CF3B0C2D1041730089E35E /* Assets.xcassets in Resources */,
-				D5E9D2262D11AE2F000B5356 /* Info.plist in Resources */,
 				D5CF3B3B2D10426F0089E35E /* Staging.xcconfig in Resources */,
 				D5CF3B332D1042370089E35E /* Dev.xcconfig in Resources */,
 			);
@@ -321,10 +319,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5E9D2272D11AE2F000B5356 /* Info.plist in Resources */,
 				D5CF3B342D1042370089E35E /* Dev.xcconfig in Resources */,
 				D5CF3B3C2D1042700089E35E /* Staging.xcconfig in Resources */,
 				D5CF3B392D1042610089E35E /* Prod.xcconfig in Resources */,
+				D5FA1D4D2D12D4E7001A1180 /* Info.plist in Resources */,
 				D5CF3B402D1042A90089E35E /* exportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,10 +331,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5E9D2282D11AE2F000B5356 /* Info.plist in Resources */,
 				D5CF3B352D1042370089E35E /* Dev.xcconfig in Resources */,
 				D5CF3B3D2D1042700089E35E /* Staging.xcconfig in Resources */,
 				D5CF3B3A2D1042610089E35E /* Prod.xcconfig in Resources */,
+				D5FA1D4E2D12D4E7001A1180 /* Info.plist in Resources */,
 				D5CF3B412D1042A90089E35E /* exportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,11 +586,14 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5QQR76XAUZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CiCdTesting/Info.plist;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_PREPROCESS = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,11 +623,13 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5QQR76XAUZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CiCdTesting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_PREPROCESS = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
