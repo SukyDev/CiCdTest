@@ -129,7 +129,6 @@
 		D5CF3AFB2D1041720089E35E = {
 			isa = PBXGroup;
 			children = (
-				D5FA1D4B2D12D4E7001A1180 /* Info.plist */,
 				D5CF3B3E2D1042A90089E35E /* exportOptions.plist */,
 				D5CF3B312D1041FE0089E35E /* Configuration */,
 				D5CF3B062D1041720089E35E /* CiCdTesting */,
@@ -154,6 +153,7 @@
 		D5CF3B062D1041720089E35E /* CiCdTesting */ = {
 			isa = PBXGroup;
 			children = (
+				D5FA1D4B2D12D4E7001A1180 /* Info.plist */,
 				D5CF3B072D1041720089E35E /* CiCdTestingApp.swift */,
 				D5CF3B092D1041720089E35E /* ContentView.swift */,
 				D5CF3B0B2D1041730089E35E /* Assets.xcassets */,
