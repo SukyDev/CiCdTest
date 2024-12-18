@@ -28,8 +28,6 @@
 		D5CF3B3F2D1042A90089E35E /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5CF3B3E2D1042A90089E35E /* exportOptions.plist */; };
 		D5CF3B402D1042A90089E35E /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5CF3B3E2D1042A90089E35E /* exportOptions.plist */; };
 		D5CF3B412D1042A90089E35E /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5CF3B3E2D1042A90089E35E /* exportOptions.plist */; };
-		D5FA1D4D2D12D4E7001A1180 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5FA1D4B2D12D4E7001A1180 /* Info.plist */; };
-		D5FA1D4E2D12D4E7001A1180 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5FA1D4B2D12D4E7001A1180 /* Info.plist */; };
 		D750EFD384A94410D207FC49 /* Pods_CiCdTestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B11094C0E987B2E741B6D1 /* Pods_CiCdTestingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -322,7 +320,6 @@
 				D5CF3B342D1042370089E35E /* Dev.xcconfig in Resources */,
 				D5CF3B3C2D1042700089E35E /* Staging.xcconfig in Resources */,
 				D5CF3B392D1042610089E35E /* Prod.xcconfig in Resources */,
-				D5FA1D4D2D12D4E7001A1180 /* Info.plist in Resources */,
 				D5CF3B402D1042A90089E35E /* exportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,7 +331,6 @@
 				D5CF3B352D1042370089E35E /* Dev.xcconfig in Resources */,
 				D5CF3B3D2D1042700089E35E /* Staging.xcconfig in Resources */,
 				D5CF3B3A2D1042610089E35E /* Prod.xcconfig in Resources */,
-				D5FA1D4E2D12D4E7001A1180 /* Info.plist in Resources */,
 				D5CF3B412D1042A90089E35E /* exportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
