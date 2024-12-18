@@ -37,9 +37,9 @@ jobs:
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
         run: |
           # create variables
-          CERTIFICATE_PATH=$CICDTESTING_TEMP/build_certificate.p12
-          PP_PATH=$CICDTESTING_TEMP/build_pp.mobileprovision
-          KEYCHAIN_PATH=$CICDTESTING_TEMP/app-signing.keychain-db
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
           # import certificate and provisioning profile from secrets
           echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
           echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
@@ -87,7 +87,7 @@ jobs:
         if: ${{ always() }}
         run: |
           # Delete the temporary keychain
-          security delete-keychain $CICDTESTING_TEMP/app-signing.keychain-db
+          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
       
           # Remove the provisioning profile used for the project
           rm -f ~/Library/MobileDevice/Provisioning\ Profiles/CiCdTesting.mobileprovision
