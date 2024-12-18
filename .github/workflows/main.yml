@@ -55,14 +55,6 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Clean Derived Data
-        run: |
-          rm -rf ~/Library/Developer/Xcode/DerivedData/*
-
-      - name: List files in the project directory
-        run: |
-          ls -R CiCdTesting/
-
       - name: Build iOS application archive
         run: |
             cat $PWD/exportOptions.plist
@@ -95,7 +87,7 @@ jobs:
         if: ${{ always() }}
         run: |
           # Delete the temporary keychain
-          security delete-keychain $CiCdTesting_TEMP/app-signing.keychain-db
+          security delete-keychain $CICDTESTING_TEMP/app-signing.keychain-db
       
           # Remove the provisioning profile used for the project
           rm -f ~/Library/MobileDevice/Provisioning\ Profiles/CiCdTesting.mobileprovision
