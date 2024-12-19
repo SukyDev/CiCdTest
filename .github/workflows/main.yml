@@ -62,6 +62,11 @@ jobs:
             -only-testing:CiCdTestingTests \
             clean test | xcpretty
 
+      # Make Snapshots Reference Images Directory
+      - name: Ensure ReferenceImages Directory Exists
+        run: |
+          mkdir -p CiCdTesting/ReferenceImages
+
       # Checkout snapshot repository
       - name: Checkout Snapshots Repository
         uses: actions/checkout@v4
