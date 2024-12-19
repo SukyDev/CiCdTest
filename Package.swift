@@ -5,7 +5,7 @@
 //  Created by New on 18.12.24..
 //
 
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
@@ -28,4 +28,5 @@ let package = Package(
         ),
     ]
 )
+
 
