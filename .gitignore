@@ -6,3 +6,8 @@ DerivedData/
 build/
 # CocoaPods
 Pods/
+# Ignore xcshareddata directory
+CiCdTesting.xcodeproj/xcshareddata/
+
+# Ignore ReferenceImages directory
+CiCdTesting/ReferenceImages/

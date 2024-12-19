@@ -14,6 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Checkout snapshot repository
+      - name: Checkout Snapshots Repository
+        uses: actions/checkout@v4
+        with:
+          repository: SukyDev/GitStorageForSnapshots
+          path: snapshots-repo
+          token: ${{ secrets.SNAPSHOT_REPO_TOKEN }}  # You'll need to add this secret
+
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
@@ -22,12 +30,69 @@ jobs:
       - name: Show build SDK
         run: xcodebuild -showsdks
 
-      - name: Show available destinations
-        run: xcodebuild -list -project CiCdTesting.xcodeproj
-
       - name: Install CocoaPods
         run: |
           pod install
+
+      # Run Unit Tests
+      - name: Run Unit Tests
+        run: |
+          xcodebuild test \
+            -workspace CiCdTesting.xcworkspace \
+            -scheme CiCdTesting \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' \
+            -only-testing:CiCdTestingTests \
+            clean test | xcpretty
+
+      # Check if snapshots exist in remote repository
+      - name: Check for Existing Snapshots
+        id: check-snapshots
+        run: |
+          if [ -d "snapshots-repo/ReferenceImages" ]; then
+            echo "::set-output name=snapshots_exist::true"
+            # Copy existing snapshots to the project directory
+            cp -R snapshots-repo/ReferenceImages CiCdTesting/
+          else
+            echo "::set-output name=snapshots_exist::false"
+            mkdir -p snapshots-repo/ReferenceImages
+          fi
+
+      # Run UI Tests with Snapshots
+      - name: Run UI Tests with Snapshots
+        id: ui-tests
+        run: |
+          if [ "${{ steps.check-snapshots.outputs.snapshots_exist }}" == "true" ]; then
+            echo "Running tests against existing snapshots..."
+            xcodebuild test \
+              -workspace CiCdTesting.xcworkspace \
+              -scheme CiCdTesting \
+              -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' \
+              -only-testing:CiCdTestingUITests \
+              -setenv REFERENCE_IMAGE_DIR=$PWD/CiCdTesting/ReferenceImages/CiCdTestingUI \
+              clean test | xcpretty
+          else
+            echo "Recording new snapshots..."
+            xcodebuild test \
+              -workspace CiCdTesting.xcworkspace \
+              -scheme CiCdTesting \
+              -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' \
+              -only-testing:CiCdTestingUITests \
+              -setenv REFERENCE_IMAGE_DIR=$PWD/CiCdTesting/ReferenceImages/CiCdTestingUI \
+              -setenv RECORD_MODE=YES \
+              clean test | xcpretty
+          fi
+
+      # Update snapshots in remote repository if new ones were recorded
+      - name: Update Remote Snapshots
+        if: steps.check-snapshots.outputs.snapshots_exist == 'false'
+        run: |
+          cp -R CiCdTesting/ReferenceImages snapshots-repo/
+          cd snapshots-repo
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add ReferenceImages
+          git commit -m "Add initial snapshot references"
+          git push
 
       - name: Install the Apple certificate and provisioning profile
         env:
