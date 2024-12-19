@@ -48,6 +48,10 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
+      - name: Resolve SPM dependencies
+        run: |
+          swift package resolve
+
       - name: Allow provisioning updates
         run: xcodebuild -allowProvisioningUpdates
 
