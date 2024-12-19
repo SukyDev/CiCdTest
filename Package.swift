@@ -5,6 +5,7 @@
 //  Created by New on 18.12.24..
 //
 
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -13,14 +14,12 @@ let package = Package(
         .iOS(.v13)
     ],
     dependencies: [
-        // Add dependencies here
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
     ],
     targets: [
         .target(
             name: "CiCdTesting",
             dependencies: []),
-
         .testTarget(
             name: "CiCdTestingUITests",
             dependencies: [
@@ -29,3 +28,4 @@ let package = Package(
         ),
     ]
 )
+
