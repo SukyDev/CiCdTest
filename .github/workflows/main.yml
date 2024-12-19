@@ -20,11 +20,10 @@ jobs:
           xcode-version: '15.3'
 
       - name: Show build SDK
-        run: xcodebuild -showsdks
+        run: xcodebuild -showsdks 
 
-      - name: Install CocoaPods
-        run: |
-          pod install
+      - name: Allow provisioning updates
+        run: xcodebuild -allowProvisioningUpdates
 
       - name: Install the Apple certificate and provisioning profile
         env:
